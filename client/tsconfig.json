@@ -1,14 +1,12 @@
 {
     "compilerOptions": {
-        "outDir": "src/js",
+        "outDir": "src/build",
         "sourceMap": false,
         "target": "ES6",
         "esModuleInterop": true,
         "moduleResolution": "node",
         "strictNullChecks": true,
-        "types": [
-            "jquery"
-        ],
+        "types": [],
         "skipLibCheck": true
     },
     "include": [

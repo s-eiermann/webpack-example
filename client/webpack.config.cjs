@@ -8,16 +8,6 @@ const isProd = process.env.NODE_ENV === 'production'
 module.exports = {
   entry: './src/ts/index.ts',
   target: 'web',
-  resolve: {
-    // Add `.ts` and `.tsx` as a resolvable extension.
-    extensions: [".ts", ".tsx", ".js"],
-    // Add support for TypeScripts fully qualified ESM imports.
-    extensionAlias: {
-      ".js": [".js", ".ts"],
-      ".cjs": [".cjs", ".cts"],
-      ".mjs": [".mjs", ".mts"]
-    }
-  },
   output: {
     filename: isProd ? 'app.min.js' : 'app.js',
     path: path.resolve(__dirname, 'dist/'),
@@ -32,7 +22,7 @@ module.exports = {
       new CssMinimizerPlugin(),
     ],
   },
-  watch: process.env.WEBPACK_WATCH === 1 ? true : false,
+  watch: process.env.WEBPACK_WATCH == 1 ? true : false,
   plugins: [
     new MiniCssExtractPlugin({
       filename: isProd ? 'app.min.css' : 'app.css'
@@ -47,10 +37,9 @@ module.exports = {
       },
       {
         include: [
-          path.resolve(__dirname, "src/css"),
+          path.resolve(__dirname, 'src/css'),
         ],
         test: /\.css$/i,
-        exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -60,15 +49,5 @@ module.exports = {
         ],
       }
     ],
-  },
-  externals: {
-    select2: 'jQuery.select2',
-    pleasejs: 'Please',
-    jquery: 'jQuery',
-    qrcode: 'QRCode',
-    'chart.js': 'Chart',
-    'chart.js/auto': 'Chart',
-    'ion-rangeslider': '"ion-rangeslider"',
-    'chartjs-plugin-datalabels': 'ChartDataLabels',
   }
 }
