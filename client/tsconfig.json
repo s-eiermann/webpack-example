@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "outDir": "src/js",
+        "sourceMap": false,
+        "target": "ES6",
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "strictNullChecks": true,
+        "types": [
+            "jquery"
+        ],
+        "skipLibCheck": true
+    },
+    "include": [
+        "src/ts"
+    ],
+    "exclude": [
+        "server"
+    ],
+}
